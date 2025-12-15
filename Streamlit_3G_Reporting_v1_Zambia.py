@@ -75,7 +75,7 @@ if uploaded_file:
     
     # Selecting Processing Type
     if sheet_type == "BBH":
-        pivot = pd.pivot_table(df, index=['RNC name', 'WBTS name'], columns='Date', values=KPI_Obj, aggfunc='sum')
+        pivot = pd.pivot_table(df, index=['RNC name', 'WBTS name', 'WCEL name'], columns='Date', values=KPI_Obj, aggfunc='sum')
         output_filename = "3G_Day_Site_Level_KPIs_output.csv"
     else:
         selected_hour = st.number_input("Select Hour (0-23):", min_value=0, max_value=23, step=1)
@@ -98,4 +98,5 @@ if uploaded_file:
         data=csv,
         file_name=output_filename,
         mime="text/csv"
+
     )
